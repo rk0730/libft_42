@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "libft.h"
+#include "srcs/libft.h"
 
 int	main(void)
 {
-	char	*str = "abc123";
+	char *str = "abc123";
 	printf("len %d\n", ft_strlen(str));
 	while (*str)
 	{
