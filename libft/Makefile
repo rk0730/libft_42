@@ -1,6 +1,7 @@
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_strlen.c ft_isdigit.c
+SRCDIR = srcs
+SRCS = $(SRCDIR)/ft_strlen.c $(SRCDIR)/ft_isdigit.c
 OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
