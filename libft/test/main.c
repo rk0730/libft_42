@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "srcs/libft.h"
+#include "libft.h"
 
 int	main(void)
 {
