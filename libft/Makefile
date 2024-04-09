@@ -3,6 +3,8 @@ FLAGS = -Wall -Wextra -Werror
 SRCDIR = srcs
 INCDIR = .
 
+# find ./srcs -type f -name "*.c"
+# このコマンドで出したものをコピペする
 SRCS = $(SRCDIR)/ft_isdigit.c \
 	$(SRCDIR)/ft_strlen.c \
 	$(SRCDIR)/ft_bzero.c \
