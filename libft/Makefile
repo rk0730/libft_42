@@ -1,6 +1,16 @@
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_strlen.c ft_isdigit.c
+SRCDIR = srcs
+INCDIR = .
+
+SRCS = $(SRCDIR)/ft_isdigit.c \
+	$(SRCDIR)/ft_strlen.c \
+	$(SRCDIR)/ft_bzero.c \
+	$(SRCDIR)/ft_memcpy.c \
+	$(SRCDIR)/ft_memset.c \
+	$(SRCDIR)/ft_memmove.c \
+	$(SRCDIR)/ft_calloc.c
+
 OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
@@ -11,7 +21,7 @@ $(NAME): $(OBJS)
 	ar r $(NAME) $(OBJS)
 
 %.o: %.c
-	gcc $(FLAGS) -c $< -o $@
+	gcc $(FLAGS) -I$(INCDIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
