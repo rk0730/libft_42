@@ -1,15 +1,17 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 
+//消す
 #include <stdio.h>
 
-// int	ft_isdigit(char c);
+#include <unistd.h>
+#include <stdlib.h>
+
 size_t	ft_strlen(char *str);
-// void	bzero(void *s, size_t n);
-// void	*memset(void *b, int c, size_t len);
-// void	*calloc(size_t count, size_t size);
-// void	*memcpy(void *restrict dst, const void *restrict src, size_t n);
-// void	*memmove(void *dst, const void *src, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
 
 
 
