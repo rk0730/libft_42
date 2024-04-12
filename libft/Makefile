@@ -1,21 +1,19 @@
 FLAGS = -Wall -Wextra -Werror
 
 SRCDIR = srcs
-INCDIR = .
+INCDIR = include
 
 # find ./srcs -type f -name "*.c"
 # このコマンドで出したものをコピペする
-SRCS = $(SRCDIR)/ft_isdigit.c \
-	$(SRCDIR)/ft_strlen.c \
-	$(SRCDIR)/ft_bzero.c \
-	$(SRCDIR)/ft_memcpy.c \
-	$(SRCDIR)/ft_memset.c \
-	$(SRCDIR)/ft_memmove.c \
-	$(SRCDIR)/ft_calloc.c
+SRCS = $(SRCDIR)/ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
+
+# テスト関連
+TESTSRCDIR = test
+TESTSRC = $(TESTSRCDIR)/test_libft.c
 
 all: $(NAME)
 
@@ -25,11 +23,27 @@ $(NAME): $(OBJS)
 %.o: %.c
 	gcc $(FLAGS) -I$(INCDIR) -c $< -o $@
 
+test: re lib.txt libft.txt
+	diff lib.txt libft.txt
+
+%.txt: %
+	./$< > $@
+
+lib:$(TESTSRC)
+	gcc $(NAME) -I$(INCDIR) $(FLAGS) $^ -o $@
+
+libft:$(TESTSRC)
+	gcc $(NAME) -I$(INCDIR) $(FLAGS) $^ -D FT -o $@
+
 clean:
 	rm -f $(OBJS)
 
-fclean: clean
-	rm $(NAME)
+cleantest:
+	rm -f *.txt
+	rm -f lib libft
+
+fclean: clean cleantest
+	rm -f $(NAME)
 
 re: fclean all
 
