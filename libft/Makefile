@@ -10,10 +10,15 @@ INCDIR = include
 
 # find ./srcs -type f -name "*.c"
 # このコマンドで出したものをコピペする
-SRCS = $(SRCDIR)/ft_strlen.c \
+SRCS = $(SRCDIR)/ft_isdigit.c \
+	$(SRCDIR)/ft_strlen.c \
 	$(SRCDIR)/ft_memset.c \
 	$(SRCDIR)/ft_bzero.c \
 	$(SRCDIR)/ft_memcpy.c \
+	$(SRCDIR)/ft_memmove.c \
+	$(SRCDIR)/ft_memchr.c \
+	$(SRCDIR)/ft_memcmp.c \
+	$(SRCDIR)/ft_strnstr.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -42,6 +47,7 @@ leak: libft
 #セグフォなどの場所を確認する
 sanitize: $(TESTSRC)
 	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $(SANITIZE) $^ -D FT -o $@
+	./$@
 
 #テスト関連
 test: re lib.txt libft.txt
@@ -58,6 +64,7 @@ libft:$(TESTSRC)
 
 error:$(ERRORSRC)
 	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $^ -o $@
+	./$@
 
 #clean関連
 clean:

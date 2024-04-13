@@ -13,5 +13,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	//足りる場合はlenの大きさのbufferを作り、そこにmemcpyしていく
 	//そのあとbufferからdstにmemcpyしていく
 
+	unsigned char	tmp[len];
+
+	if (len > ft_strlen(dst))
+		return (NULL);
+	ft_memcpy(tmp, src, len);
+	ft_memcpy(dst, tmp, len);
 	return (dst);
 }
