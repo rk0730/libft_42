@@ -69,12 +69,10 @@ error:$(ERRORSRC)
 #clean関連
 clean:
 	rm -f $(OBJS)
-
-cleantest:
 	rm -rf sanitize.dSYM
 	rm -f *.txt lib libft sanitize error
 
-fclean: clean cleantest
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
