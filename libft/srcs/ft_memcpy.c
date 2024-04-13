@@ -1,6 +1,6 @@
 #include "libft.h"
 
-// restrictはコンパイラに最適化させるために必要な修飾子　nがなくなるまでひたすらコピーしていく
+// nがなくなるまでひたすらコピーしていく
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t			i;
