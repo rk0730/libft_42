@@ -9,14 +9,65 @@
 #define F(name) name
 #endif
 
+void	test_isalpha()
+{
+	printf("\nisalpha\n");
+	printf("%d ", F(isalpha)('a'));
+	printf("%d ", F(isalpha)('A'));
+	printf("%d ", F(isalpha)('k'));
+	printf("%d ", F(isalpha)('z'));
+	printf("%d ", F(isalpha)(65));
+	printf("%d ", F(isalpha)('1'));
+	printf("%d ", F(isalpha)('0'));
+	printf("\n");
+}
+
 void	test_isdigit()
 {
 	printf("\nisdigit\n");
-	printf("%d\n", F(isdigit)('1'));
-	printf("%d\n", F(isdigit)('2'));
-	printf("%d\n", F(isdigit)('a'));
-	printf("%d\n", F(isdigit)('\n'));
+	printf("%d ", F(isdigit)('1'));
+	printf("%d ", F(isdigit)('2'));
+	printf("%d ", F(isdigit)('a'));
+	printf("%d ", F(isdigit)('\n'));
+	printf("\n");
+}
 
+void	test_isalnum()
+{
+	printf("\nisalnum\n");
+	printf("%d ", F(isalnum)('1'));
+	printf("%d ", F(isalnum)('7'));
+	printf("%d ", F(isalnum)('a'));
+	printf("%d ", F(isalnum)('Z'));
+	printf("%d ", F(isalnum)('\n'));
+	printf("%d ", F(isalnum)('\0'));
+	printf("%d ", F(isalnum)('\t'));
+	printf("\n");
+}
+
+void	test_isascii()
+{
+	printf("\nisascii\n");
+	printf("%d ", F(isascii)(' '));
+	printf("%d ", F(isascii)('1'));
+	printf("%d ", F(isascii)('a'));
+	printf("%d ", F(isascii)('Z'));
+	printf("%d ", F(isascii)('\n'));
+	printf("%d ", F(isascii)(128));
+	printf("%d ", F(isascii)(-1));
+	printf("\n");
+}
+
+void	test_isprint()
+{
+	printf("\nisprint\n");
+	printf("%d ", F(isprint)(' '));
+	printf("%d ", F(isprint)('7'));
+	printf("%d ", F(isprint)('a'));
+	printf("%d ", F(isprint)('Z'));
+	printf("%d ", F(isprint)('\n'));
+	printf("%d ", F(isprint)('\t'));
+	printf("%d ", F(isprint)('\0'));
 }
 
 void	test_strlen()
@@ -98,7 +149,11 @@ void	test_strnstr()
 
 int	main(void)
 {
+	test_isalpha();
 	test_isdigit();
+	test_isalnum();
+	test_isascii();
+	test_isprint();
 	test_strlen();
 	test_memset();
 	test_bzero();
