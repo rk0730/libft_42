@@ -10,7 +10,11 @@ INCDIR = include
 
 # find ./srcs -type f -name "*.c"
 # このコマンドで出したものをコピペする
-SRCS = $(SRCDIR)/ft_isdigit.c \
+SRCS = $(SRCDIR)/ft_isalpha.c \
+	$(SRCDIR)/ft_isdigit.c \
+	$(SRCDIR)/ft_isalnum.c \
+	$(SRCDIR)/ft_isascii.c \
+	$(SRCDIR)/ft_isprint.c \
 	$(SRCDIR)/ft_strlen.c \
 	$(SRCDIR)/ft_memset.c \
 	$(SRCDIR)/ft_bzero.c \
