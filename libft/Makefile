@@ -23,6 +23,14 @@ SRCS = $(SRCDIR)/ft_isalpha.c \
 	$(SRCDIR)/ft_memchr.c \
 	$(SRCDIR)/ft_memcmp.c \
 	$(SRCDIR)/ft_strnstr.c \
+	$(SRCDIR)/ft_strlcpy.c \
+	$(SRCDIR)/ft_strlcat.c \
+	$(SRCDIR)/ft_toupper.c \
+	$(SRCDIR)/ft_tolower.c \
+	$(SRCDIR)/ft_strchr.c \
+	$(SRCDIR)/ft_strrchr.c \
+	$(SRCDIR)/ft_strncmp.c \
+	$(SRCDIR)/ft_atoi.c \
 
 OBJS = $(SRCS:.c=.o)
 
