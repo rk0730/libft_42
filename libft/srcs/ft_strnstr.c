@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
+/*   By: 1652952399 <1652952399@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:31:26 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/14 00:31:27 by kitaoryoma       ###   ########.fr       */
+/*   Updated: 2024/04/18 13:29:13 by 1652952399       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	// haystackにnull文字が来たらそこで打ち切る
-	// haystackのlen文字目以降は見ない
-	//方針
-	// len以内かつnull文字でない　というループ
-	//ループ内でまずフラグを立て、最後まで一致していなかったらフラグを折る（memcmp使う）
-	//フラグが立っていたら結果をreturn 最後までいったらnullをreturn (size_t i = 0);
 	size_t	i;
 	size_t	needle_len;
 

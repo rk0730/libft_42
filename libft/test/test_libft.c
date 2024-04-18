@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include "libft.h"
 
 #ifdef FT
-#define F(name) ft_ ## name
+# define F(name) ft_ ## name
 #else
-#define F(name) name
+# define F(name) name
 #endif
 
 void	test_isalpha()
@@ -109,6 +110,7 @@ void	test_memcpy()
 
 void	test_memmove()
 {
+	//dstとsrcがかぶっていてもちゃんと移動しているように見える　memcpyより有能
 	//dstが足りない場合はエラー処理だが、srcが足りない場合は未定義動作
 	printf("\nmemmove\n");
 	char str[] = "1234567890";
@@ -138,6 +140,8 @@ void	test_memcmp()
 
 void	test_strnstr()
 {
+	// haystackにnull文字が来たらそこで打ち切る
+	// haystackのlen文字目以降は見ない
 	printf("\nstrnstr\n");
 	char s1[] = "abcdefghij";
 	char s2[] = "gh";
@@ -145,6 +149,108 @@ void	test_strnstr()
 	printf("%s\n", F(strnstr)(s1, s2, 7));
 	printf("%s\n", F(strnstr)(s1, s2, 8));
 	printf("%s\n", F(strnstr)(s1, s2, 9));
+}
+
+void	test_strlcpy()
+{
+	printf("\nstrlcpy\n");
+	char s1[] = "Hello World!";
+	char s2[5];
+	printf("%lu\n", F(strlcpy)(s2, s1, 2));
+	printf("%s\n", s2);
+	char s3[5];
+	printf("%lu\n", F(strlcpy)(s3, s1, 5));
+	printf("%s\n", s3);
+	char s4[5];
+	printf("%lu\n", F(strlcpy)(s4, s1, 0));
+}
+
+void	test_strlcat()
+{
+	printf("\nstrlcat\n");
+	char s1[25];
+	F(strlcpy)(s1, "Hello ", 25);
+	char s2[] = "World!";
+	printf("%lu\n", F(strlcat)(s1, s2, 3));
+	printf("%s\n", s1);
+	printf("%lu\n", F(strlcat)(s1, s2, 11));
+	printf("%s\n", s1);
+	printf("%lu\n", F(strlcat)(s1, s2, 25));
+	printf("%s\n", s1);
+}
+
+void	test_toupper()
+{
+	printf("\ntoupper\n");
+	printf("%c\n", F(toupper)('a'));
+	printf("%c\n", F(toupper)('A'));
+	printf("%c\n", F(toupper)('k'));
+	printf("%c\n", F(toupper)('1'));
+	printf("%c\n", F(toupper)('\t'));
+	printf("%c\n", F(toupper)('z'));
+}
+
+void	test_tolower()
+{
+	printf("\ntolower\n");
+	printf("%c\n", F(tolower)('a'));
+	printf("%c\n", F(tolower)('A'));
+	printf("%c\n", F(tolower)('K'));
+	printf("%c\n", F(tolower)('1'));
+	printf("%c\n", F(tolower)('\t'));
+	printf("%c\n", F(tolower)('Z'));
+}
+
+void	test_strchr()
+{
+	printf("\nstrchr\n");
+	char str[] = "Hello world!";
+	printf("%s\n", F(strchr)(str, 'e'));
+	printf("%s\n", F(strchr)(str, ' '));
+	printf("%s\n", F(strchr)(str, 'l'));
+	printf("%s\n", F(strchr)(str, '\0'));
+}
+
+void	test_strrchr()
+{
+	printf("\nstrrchr\n");
+	char str[] = "Hello world!";
+	printf("%s\n", F(strrchr)(str, 'e'));
+	printf("%s\n", F(strrchr)(str, ' '));
+	printf("%s\n", F(strrchr)(str, 'l'));
+	printf("%s\n", F(strrchr)(str, 'o'));
+	printf("%s\n", F(strrchr)(str, '\0'));
+}
+
+void	test_strncmp()
+{
+	printf("\nstrncmp\n");
+	char s1[] = "Hello";
+	char s2[] = "hello";
+	char s3[] = "Hella";
+	char s4[] = "Hello!";
+	printf("%d ", F(strncmp)(s1, s1, 5));
+	printf("%d ", F(strncmp)(s1, s2, 5));
+	printf("%d ", F(strncmp)(s1, s3, 5));
+	printf("%d ", F(strncmp)(s1, s3, 3));
+	printf("%d ", F(strncmp)(s1, s4, 6));
+	printf("\n");
+}
+
+void	test_atoi()
+{
+	printf("\natoi\n");
+	printf("%d\n", F(atoi)("0"));
+	printf("%d\n", F(atoi)(" 	123"));
+	printf("%d\n", F(atoi)("  	+123"));
+	printf("%d\n", F(atoi)("  	++123"));
+	printf("%d\n", F(atoi)("  	-123"));
+	printf("%d\n", F(atoi)("  	--123"));
+	printf("%d\n", F(atoi)("  	2147483647"));
+	printf("%d\n", F(atoi)("  	2147483648"));
+	printf("%d\n", F(atoi)("  	-2147483648"));
+	printf("%d\n", F(atoi)(""));
+	printf("%d\n", F(atoi)("  "));
 }
 
 int	main(void)
@@ -162,5 +268,13 @@ int	main(void)
 	test_memchr();
 	test_memcmp();
 	test_strnstr();
+	test_strlcpy();
+	test_strlcat();
+	test_toupper();
+	test_tolower();
+	test_strchr();
+	test_strrchr();
+	test_strncmp();
+	test_atoi();
 	return (0);
 }
