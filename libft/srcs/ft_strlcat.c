@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: 1652952399 <1652952399@student.42.fr>      +#+  +:+       +#+        */
+/*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:05:34 by 1652952399        #+#    #+#             */
-/*   Updated: 2024/04/18 12:17:39 by 1652952399       ###   ########.fr       */
+/*   Updated: 2024/04/18 19:36:21 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//dstにsrcを繋げる　繋げた後の文字数はdstsizeを超えない
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

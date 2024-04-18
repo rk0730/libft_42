@@ -6,13 +6,13 @@
 /*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:32:11 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/14 00:32:13 by kitaoryoma       ###   ########.fr       */
+/*   Updated: 2024/04/18 19:32:22 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// memsetを使う
+// 配列を0で埋める
 void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
