@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/18 19:48:55 by kitaoryoma       ###   ########.fr       */
+/*   Created: 2024/04/18 21:03:52 by kitaoryoma        #+#    #+#             */
+/*   Updated: 2024/04/18 21:17:37 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+//s1からsetに含まれる文字を除いて返す
+char	*ft_strtrim(char const *s1, char const *set)
 {
+	//setにあるか確認していきながら追加していく　それを最後までやる
 	char	*result;
 
-	result = malloc(count * size);
-	if (!result)
-		return (NULL);
-	ft_bzero(result, count * size);
-	return (result);
+	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	
 }

@@ -10,6 +10,8 @@
 # define F(name) name
 #endif
 
+//part1
+
 void	test_isalpha()
 {
 	printf("\nisalpha\n");
@@ -248,8 +250,62 @@ void	test_atoi()
 	printf("%d\n", F(atoi)("  "));
 }
 
+void	test_calloc()
+{
+	printf("\ncalloc\n");
+	char *s = (char *)F(calloc)(10, 1);
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d ", s[i]);
+	}
+	printf("\n");
+	free(s);
+}
+
+void	test_strdup()
+{
+	printf("\nstrdup\n");
+	char *s1 = "Hello world";
+	char *s2 = F(strdup)(s1);
+	printf("%s\n", s2);
+	free(s2);
+}
+
+//part2
+void	test_substr()
+{
+	printf("\nsubstr\n");
+	char *str = "Hello world";
+	char *s1 = ft_substr(str, 0, 5);
+	printf("result %s\nanswer Hell\n", s1);
+	free(s1);
+	char *s2 = ft_substr(str, 1, 7);
+	printf("result %s\nanswer ello w\n", s2);
+	free(s2);
+	char *s3 = ft_substr(str, 2, 20);
+	printf("result %s\nanswer llo world\n", s3);
+	free(s3);
+}
+
+void	test_strjoin()
+{
+	printf("\nstrjoin\n");
+	char *s1 = "Hello ";
+	char *s2 = "World";
+	char *str1 = ft_strjoin(s1, s2);
+	char *str2 = ft_strjoin(s1, s1);
+	char *str3 = ft_strjoin(s2, s2);
+	printf("result %s\nanswer Hello World\n", str1);
+	printf("result %s\nanswer Hello Hello \n", str2);
+	printf("result %s\nanswer WorldWorld\n", str3);
+	free(str1);
+	free(str2);
+	free(str3);
+}
+
 int	main(void)
 {
+	//part1
 	test_isalpha();
 	test_isdigit();
 	test_isalnum();
@@ -271,5 +327,10 @@ int	main(void)
 	test_strrchr();
 	test_strncmp();
 	test_atoi();
+	test_calloc();
+	test_strdup();
+	//part2
+	test_substr();
+	test_strjoin();
 	return (0);
 }
