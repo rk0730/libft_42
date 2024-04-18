@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/18 19:48:55 by kitaoryoma       ###   ########.fr       */
+/*   Created: 2024/04/18 20:08:35 by kitaoryoma        #+#    #+#             */
+/*   Updated: 2024/04/18 20:33:03 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+//startのindexから始まり、len分コピーされた文字列を作る　lenが多い場合は最後の文字までだけコピー
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*result;
+	int				max;
+	unsigned int	i;
+	char			*result;
 
-	result = malloc(count * size);
-	if (!result)
-		return (NULL);
-	ft_bzero(result, count * size);
+	i = start;
+	max = 0;
+	while (s[i])
+	{
+		i++;
+		max++;
+	}
+	if ((size_t)(max + 1) < len)
+		len = (size_t)(max + 1);
+	result = (char *)malloc(sizeof(char) * len);
+	ft_strlcpy(result, &s[start], len);
 	return (result);
 }

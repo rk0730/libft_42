@@ -31,6 +31,10 @@ SRCS = $(SRCDIR)/ft_isalpha.c \
 	$(SRCDIR)/ft_strrchr.c \
 	$(SRCDIR)/ft_strncmp.c \
 	$(SRCDIR)/ft_atoi.c \
+	$(SRCDIR)/ft_calloc.c \
+	$(SRCDIR)/ft_strdup.c \
+	$(SRCDIR)/ft_substr.c \
+	$(SRCDIR)/ft_strjoin.c \
 
 OBJS = $(SRCS:.c=.o)
 
