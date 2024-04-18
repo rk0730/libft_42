@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: 1652952399 <1652952399@student.42.fr>      +#+  +:+       +#+        */
+/*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:31:13 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/18 13:31:07 by 1652952399       ###   ########.fr       */
+/*   Updated: 2024/04/18 19:39:44 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//dstとsrcが被っても大丈夫　dstが足りないとエラー、srcが足りないのは未定義動作
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*tmp;

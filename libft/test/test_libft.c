@@ -110,8 +110,6 @@ void	test_memcpy()
 
 void	test_memmove()
 {
-	//dstとsrcがかぶっていてもちゃんと移動しているように見える　memcpyより有能
-	//dstが足りない場合はエラー処理だが、srcが足りない場合は未定義動作
 	printf("\nmemmove\n");
 	char str[] = "1234567890";
 	printf("%s\n", (char *)F(memmove)(str, &str[2], 5));
@@ -119,7 +117,6 @@ void	test_memmove()
 
 void	test_memchr()
 {
-	//destの長さは考えていない　nの分だけ探す
 	printf("\nmemchr\n");
 	char str[] = "1234567890";
 	char *result = (char *)F(memchr)(str, 'a', 10);
@@ -140,8 +137,6 @@ void	test_memcmp()
 
 void	test_strnstr()
 {
-	// haystackにnull文字が来たらそこで打ち切る
-	// haystackのlen文字目以降は見ない
 	printf("\nstrnstr\n");
 	char s1[] = "abcdefghij";
 	char s2[] = "gh";
