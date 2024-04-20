@@ -6,7 +6,7 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:30:41 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 15:01:04 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/20 16:20:46 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 
 //helper
 void	ft_putstr(char *str);
+char	*ft_stradd(char *str, char c);
 
 
 #endif
