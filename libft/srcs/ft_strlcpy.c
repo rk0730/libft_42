@@ -6,13 +6,13 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:26:57 by 1652952399        #+#    #+#             */
-/*   Updated: 2024/04/20 11:44:49 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/20 15:36:22 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//dstをオーバーフローしないようにコピーしていく
+//dstをオーバーフローしないようにコピーしていく dstはヌル文字を含めてdstsize文字
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

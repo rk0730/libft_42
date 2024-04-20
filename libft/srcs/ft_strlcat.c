@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
+/*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:05:34 by 1652952399        #+#    #+#             */
-/*   Updated: 2024/04/18 19:36:21 by kitaoryoma       ###   ########.fr       */
+/*   Updated: 2024/04/20 14:48:06 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	d_len;
 	size_t	s_len;
 
+	if (!dst || !src)
+		return (ft_strlen(src));
 	i = 0;
 	d_len = ft_strlen((const char *)dst);
 	s_len = ft_strlen(src);
