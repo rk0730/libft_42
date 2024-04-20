@@ -390,9 +390,10 @@ int	main(void)
 	// unsigned int start = 5;
 	// printf("%u\n", start);
 	// printf("%zu\n", (size_t)start);
-	char *str = "01234";
-	size_t size = 10;
-	char *ret = ft_substr(str, 10, size);
+
+	char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
+	// char *s2 = "Hello \t  Please\n Trim me !";
+	char *ret = ft_strtrim(s1, " \n\t");
 	printf("%s\n", ret);
 	return (0);
 }
