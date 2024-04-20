@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: 1652952399 <1652952399@student.42.fr>      +#+  +:+       +#+        */
+/*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:47:47 by 1652952399        #+#    #+#             */
-/*   Updated: 2024/04/18 12:49:17 by 1652952399       ###   ########.fr       */
+/*   Updated: 2024/04/20 12:12:38 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//s2の比較する文字の(int)が負の時は少し戻り値が変わる
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
@@ -23,5 +24,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	if ((int)s2[i] < 0)
+		return ((int)s1[i] - (int)s2[i] - 256);
+	else
+		return ((int)s1[i] - (int)s2[i]);
 }
