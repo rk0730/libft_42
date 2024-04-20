@@ -6,13 +6,13 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 20:08:35 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 15:30:45 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/20 17:04:00 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//startのindexから始まり、塗る文字を除いてlen文字コピーされた文字列を作る　lenが多い場合は最後の文字までだけコピー
+//startのindexから始まり、ヌル文字を除いてlen文字コピーされた文字列を作る　lenが多い場合は最後の文字までだけコピー
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t			max;
@@ -21,9 +21,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	// printf("start %zu\n", (size_t)start);
 	// printf("len   %zu\n", ft_strlen(s));
+	if (!s)
+		return (NULL);
 	if ((size_t)start >= ft_strlen(s))
 	{
-		ft_putstr("start >= ft_strlen(s)\n");
+		ft_putstr("ft_substr: start >= ft_strlen(s)\n");
 		result = ft_calloc(1, 1);
 		return (result);
 	}
