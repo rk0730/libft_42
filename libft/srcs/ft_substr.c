@@ -6,7 +6,7 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 20:08:35 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 17:04:00 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/20 17:31:11 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	char			*result;
 
-	// printf("start %zu\n", (size_t)start);
-	// printf("len   %zu\n", ft_strlen(s));
 	if (!s)
 		return (NULL);
 	if ((size_t)start >= ft_strlen(s))
@@ -42,6 +40,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!result)
 		return (NULL);
 	ft_strlcpy(result, &s[start], len + 1);
-	// result[len] = '\0';
 	return (result);
 }
