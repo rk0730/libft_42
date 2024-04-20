@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 21:46:53 by rkitao           ###   ########.fr       */
+/*   Created: 2024/04/20 20:48:15 by rkitao            #+#    #+#             */
+/*   Updated: 2024/04/20 21:04:02 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*result;
-
-	if (size != 0 && SIZE_MAX / size < count)
+	if (n == -2147483648)
 	{
-		ft_putstr_fd("ft_calloc: over flow\n", 1);
-		return (NULL);
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	result = malloc(count * size);
-	if (!result)
+	if (n < 0)
 	{
-		free(result);
-		return (NULL);
+		ft_putchar_fd('-', fd);
+		n /= -1;
 	}
-	ft_bzero(result, count * size);
-	return (result);
+	if (0 <= n && n <= 9)
+	{
+		ft_putchar_fd(n + '0', fd);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd(n % 10 + '0', fd);
 }

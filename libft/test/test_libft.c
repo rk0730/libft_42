@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "libft.h"
 
 #ifdef FT
@@ -303,6 +304,16 @@ void	test_strjoin()
 	free(str3);
 }
 
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q libft");
+}
+
+void	ft_add(void *data)
+{
+	*(int *)data = *(int *)data + 1;
+}
+
 int	main(void)
 {
 	// //part1
@@ -333,67 +344,5 @@ int	main(void)
 	// test_substr();
 	// test_strjoin();
 
-
-	// char *src = malloc(20);
-	// for (int i = 0; i < 20; i++)
-	// 	src[i] = i + 65;
-	// // /* 1 */ check_memmove(dst, src, 0);
-	// // /* 2 */ check_memmove(dst, src, 10);
-	// char *dst = malloc(20);
-	// // /* 1 */ check_memmove(dst, src, 0);
-	// printf("src %s\n", src);
-	// ft_memmove(dst, src, 10);
-	// printf("dst %s\n", dst);
-	// free(src);
-	// free(dst);
-
-	// char src[] = "hellO";
-	// char dst[] = "hello";
-	// printf("result %d\n", ft_strncmp(src, dst, 5));
-	
-	// printf("1 %s\n", ft_strrchr(src, 'h'));
-	// printf("2 %s\n", ft_strrchr(src, 'H'));
-
-	// printf("\natoi\n");
-	// printf("%d\n", atoi("9223372036854775807"));
-	// printf("%d\n", ft_atoi("9223372036854775807"));
-	// printf("\n");
-	// printf("%d\n", atoi("9223372036854775808"));
-	// printf("%d\n", ft_atoi("9223372036854775808"));
-	// printf("\n");
-	// //ここが上の境界
-	// printf("%d\n", atoi("9223372036854775809"));
-	// printf("%d\n", ft_atoi("9223372036854775809"));
-	// printf("\n");
-	// printf("%d\n", atoi("-9223372036854775807"));
-	// printf("%d\n", ft_atoi("-9223372036854775807"));
-	// printf("\n");
-	// printf("%d\n", atoi("-9223372036854775808"));
-	// printf("%d\n", ft_atoi("-9223372036854775808"));
-	// printf("\n");
-	// printf("%d\n", atoi("-9223372036854775809"));
-	// printf("%d\n", ft_atoi("-9223372036854775809"));
-	// printf("\n");
-
-	// char *s1 = "\200";
-	// char *s2 = "\0";
-	// int i1 = ((strncmp(s1, s2, 1) > 0) ? 1 : ((strncmp(s1, s2, 1) < 0) ? -1 : 0));
-	// int i2 = ((ft_strncmp(s1, s2, 1) > 0) ? 1 : ((ft_strncmp(s1, s2, 1) < 0) ? -1 : 0));
-	// printf("ori %d\n", i1);
-	// printf("my  %d\n", i2);
-	// printf("test\n");
-	// char c = '\2';
-	// printf("%c\n", c);
-	// printf("%d\n", c);
-	// printf("%d\n", (int)c);
-
-	// unsigned int start = 5;
-	// printf("%u\n", start);
-	// printf("%zu\n", (size_t)start);
-
-	char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
-	// char *s2 = "Hello \t  Please\n Trim me !";
-	char *ret = ft_strtrim(s1, " \n\t");
-	printf("%s\n", ret);
 	return (0);
 }

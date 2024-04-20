@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 21:46:53 by rkitao           ###   ########.fr       */
+/*   Created: 2024/04/20 22:15:50 by rkitao            #+#    #+#             */
+/*   Updated: 2024/04/20 22:56:26 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*result;
+	t_list	*tmp;
 
-	if (size != 0 && SIZE_MAX / size < count)
+	if (!lst)
+		return ;
+	while ((*lst)->next)
 	{
-		ft_putstr_fd("ft_calloc: over flow\n", 1);
-		return (NULL);
+		tmp = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(tmp, del);
 	}
-	result = malloc(count * size);
-	if (!result)
-	{
-		free(result);
-		return (NULL);
-	}
-	ft_bzero(result, count * size);
-	return (result);
+	ft_lstdelone(*lst, del);
+	*lst = NULL;
+	return ;
 }

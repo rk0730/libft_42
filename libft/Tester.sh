@@ -8,8 +8,6 @@ if [ "$current_dir" != "$target_dir" ]; then
     exit 1
 fi
 
-make re
-make bonus
-make libft
-./libft
+make -C ../Tester m
+make -C ../Tester fclean
 make clean

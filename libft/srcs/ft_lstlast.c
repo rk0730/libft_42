@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 21:46:53 by rkitao           ###   ########.fr       */
+/*   Created: 2024/04/20 21:48:58 by rkitao            #+#    #+#             */
+/*   Updated: 2024/04/20 21:50:44 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*result;
-
-	if (size != 0 && SIZE_MAX / size < count)
-	{
-		ft_putstr_fd("ft_calloc: over flow\n", 1);
+	if (!lst)
 		return (NULL);
-	}
-	result = malloc(count * size);
-	if (!result)
+	while (lst->next)
 	{
-		free(result);
-		return (NULL);
+		lst = lst->next;
 	}
-	ft_bzero(result, count * size);
-	return (result);
+	return (lst);
 }

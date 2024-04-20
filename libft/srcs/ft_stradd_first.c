@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_stradd_first.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 21:46:53 by rkitao           ###   ########.fr       */
+/*   Created: 2024/04/20 20:00:36 by rkitao            #+#    #+#             */
+/*   Updated: 2024/04/20 20:15:06 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+//strの1文字目をcにしてstrはずらしたものを返す　strはfreeする
+char	*ft_stradd_first(char *str, char c)
 {
+	size_t	len;
 	char	*result;
 
-	if (size != 0 && SIZE_MAX / size < count)
-	{
-		ft_putstr_fd("ft_calloc: over flow\n", 1);
+	if (!str)
 		return (NULL);
-	}
-	result = malloc(count * size);
+	len = ft_strlen(str);
+	result = ft_calloc(len + 2, sizeof(char));
 	if (!result)
-	{
-		free(result);
 		return (NULL);
-	}
-	ft_bzero(result, count * size);
+	result[0] = c;
+	ft_strlcpy(&result[1], str, len + 1);
+	free(str);
 	return (result);
 }
