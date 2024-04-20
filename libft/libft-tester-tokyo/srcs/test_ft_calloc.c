@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_calloc.c                                      :+:      :+:    :+:   */
+/*   test_ft_calloc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 12:10:25 by susami            #+#    #+#             */
-/*   Updated: 2022/05/02 10:02:21 by susami           ###   ########.fr       */
+/*   Updated: 2024/04/20 14:50:18 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	/* 17,18 too big 1*/ check_calloc(LONG_MAX, 1);
 	/* 19,20 too big 2*/ check_calloc(ULONG_MAX, 1);
 	/* 21,22 too big 3*/ check_calloc(SIZE_MAX, 1);
-	// /* 23,24 very big 1*/ check_calloc(INT_MAX, 1);
-	// /* 25,26 very big 2*/ check_calloc(UINT_MAX, 1);
+	/* 23,24 very big 1*/ check_calloc(INT_MAX, 1);
+	/* 25,26 very big 2*/ check_calloc(UINT_MAX, 1);
 	return (0);
 }

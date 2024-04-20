@@ -354,35 +354,45 @@ int	main(void)
 	// printf("1 %s\n", ft_strrchr(src, 'h'));
 	// printf("2 %s\n", ft_strrchr(src, 'H'));
 
-	printf("\natoi\n");
-	// printf("%d\n", atoi("2147483648"));
-	// printf("%d\n", ft_atoi("2147483648"));
+	// printf("\natoi\n");
+	// printf("%d\n", atoi("9223372036854775807"));
+	// printf("%d\n", ft_atoi("9223372036854775807"));
 	// printf("\n");
-	// printf("%d\n", atoi("4294967296"));
-	// printf("%d\n", ft_atoi("4294967296"));
+	// printf("%d\n", atoi("9223372036854775808"));
+	// printf("%d\n", ft_atoi("9223372036854775808"));
 	// printf("\n");
-	// printf("%d\n", atoi("8589934592"));
-	// printf("%d\n", ft_atoi("8589934592"));
+	// //ここが上の境界
+	// printf("%d\n", atoi("9223372036854775809"));
+	// printf("%d\n", ft_atoi("9223372036854775809"));
 	// printf("\n");
-	printf("%d\n", atoi("9223372036854775807"));
-	printf("%d\n", ft_atoi("9223372036854775807"));
-	printf("\n");
-	printf("%d\n", atoi("9223372036854775808"));
-	printf("%d\n", ft_atoi("9223372036854775808"));
-	printf("\n");
-	//ここが上の境界
-	printf("%d\n", atoi("9223372036854775809"));
-	printf("%d\n", ft_atoi("9223372036854775809"));
-	printf("\n");
-		// /* 28. LONG_MIN - 1 */ ASSERT_EQ_I(atoi("-9223372036854775809"), ft_atoi("-9223372036854775809"));
-	printf("%d\n", atoi("-9223372036854775807"));
-	printf("%d\n", ft_atoi("-9223372036854775807"));
-	printf("\n");
-	printf("%d\n", atoi("-9223372036854775808"));
-	printf("%d\n", ft_atoi("-9223372036854775808"));
-	printf("\n");
-	printf("%d\n", atoi("-9223372036854775809"));
-	printf("%d\n", ft_atoi("-9223372036854775809"));
-	printf("\n");
+	// printf("%d\n", atoi("-9223372036854775807"));
+	// printf("%d\n", ft_atoi("-9223372036854775807"));
+	// printf("\n");
+	// printf("%d\n", atoi("-9223372036854775808"));
+	// printf("%d\n", ft_atoi("-9223372036854775808"));
+	// printf("\n");
+	// printf("%d\n", atoi("-9223372036854775809"));
+	// printf("%d\n", ft_atoi("-9223372036854775809"));
+	// printf("\n");
+
+	// char *s1 = "\200";
+	// char *s2 = "\0";
+	// int i1 = ((strncmp(s1, s2, 1) > 0) ? 1 : ((strncmp(s1, s2, 1) < 0) ? -1 : 0));
+	// int i2 = ((ft_strncmp(s1, s2, 1) > 0) ? 1 : ((ft_strncmp(s1, s2, 1) < 0) ? -1 : 0));
+	// printf("ori %d\n", i1);
+	// printf("my  %d\n", i2);
+	// printf("test\n");
+	// char c = '\2';
+	// printf("%c\n", c);
+	// printf("%d\n", c);
+	// printf("%d\n", (int)c);
+
+	// unsigned int start = 5;
+	// printf("%u\n", start);
+	// printf("%zu\n", (size_t)start);
+	char *str = "01234";
+	size_t size = 10;
+	char *ret = ft_substr(str, 10, size);
+	printf("%s\n", ret);
 	return (0);
 }
