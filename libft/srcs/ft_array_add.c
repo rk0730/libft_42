@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_array_add.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 21:46:53 by rkitao           ###   ########.fr       */
+/*   Created: 2024/04/20 20:01:58 by rkitao            #+#    #+#             */
+/*   Updated: 2024/04/20 20:02:09 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+//tmpより１つ大きいサイズ分mallocしてtmpをコピー　最後にstrをつけてtmpをfree
+char	**ft_array_add(char **tmp, char *str)
 {
-	char	*result;
+	int		i;
+	int		tmp_len;
+	char	**result;
 
-	if (size != 0 && SIZE_MAX / size < count)
-	{
-		ft_putstr_fd("ft_calloc: over flow\n", 1);
-		return (NULL);
-	}
-	result = malloc(count * size);
+	i = 0;
+	tmp_len = 0;
+	while (tmp[tmp_len])
+		tmp_len++;
+	result = (char **)malloc(sizeof(char *) * (tmp_len + 2));
 	if (!result)
-	{
-		free(result);
 		return (NULL);
+	while (i < tmp_len)
+	{
+		result[i] = tmp[i];
+		i++;
 	}
-	ft_bzero(result, count * size);
+	result[tmp_len] = str;
+	result[tmp_len + 1] = NULL;
+	free(tmp);
 	return (result);
 }

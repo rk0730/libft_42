@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 00:30:49 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 21:46:53 by rkitao           ###   ########.fr       */
+/*   Created: 2024/04/20 20:16:05 by rkitao            #+#    #+#             */
+/*   Updated: 2024/04/20 20:24:02 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//メモリをsize[bite]*count[要素]分確保し、中身をすべて0で初期化して先頭アドレスを返す
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*result;
+	char			*result;
+	unsigned int	len;
+	unsigned int	i;
 
-	if (size != 0 && SIZE_MAX / size < count)
-	{
-		ft_putstr_fd("ft_calloc: over flow\n", 1);
+	i = 0;
+	if (!s)
 		return (NULL);
-	}
-	result = malloc(count * size);
+	result = ft_strdup(s);
 	if (!result)
-	{
-		free(result);
 		return (NULL);
+	len = (unsigned int)ft_strlen(s);
+	while (i < len)
+	{
+		result[i] = f(i, result[i]);
+		i++;
 	}
-	ft_bzero(result, count * size);
 	return (result);
 }

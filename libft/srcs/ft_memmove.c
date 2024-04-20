@@ -6,7 +6,7 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:31:13 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 11:33:11 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/20 18:37:39 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*tmp;
 
 	tmp = (unsigned char *)malloc(len);
-
 	ft_memcpy(tmp, src, len);
 	ft_memcpy(dst, tmp, len);
 	free(tmp);

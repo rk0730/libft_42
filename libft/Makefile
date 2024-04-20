@@ -1,5 +1,6 @@
 # コンパイラ
 CC = cc
+AR = ar r
 FLAGS = -Wall -Wextra -Werror
 SANITIZE = -fsanitize=address -g
 
@@ -36,8 +37,31 @@ SRCS = $(SRCDIR)/ft_isalpha.c \
 	$(SRCDIR)/ft_substr.c \
 	$(SRCDIR)/ft_strjoin.c \
 	$(SRCDIR)/ft_strtrim.c \
+	$(SRCDIR)/ft_split.c \
+	$(SRCDIR)/ft_itoa.c \
+	$(SRCDIR)/ft_strmapi.c \
+	$(SRCDIR)/ft_striteri.c \
+	$(SRCDIR)/ft_putchar_fd.c \
+	$(SRCDIR)/ft_putstr_fd.c \
+	$(SRCDIR)/ft_putendl_fd.c \
+	$(SRCDIR)/ft_putnbr_fd.c
+
+SRCS += $(SRCDIR)/ft_stradd_first.c
+SRCS += $(SRCDIR)/ft_array_add.c
 
 OBJS = $(SRCS:.c=.o)
+
+BONUS_SRCS = $(SRCDIR)/ft_lstnew.c \
+	$(SRCDIR)/ft_lstadd_front.c \
+	$(SRCDIR)/ft_lstsize.c \
+	$(SRCDIR)/ft_lstlast.c \
+	$(SRCDIR)/ft_lstadd_back.c \
+	$(SRCDIR)/ft_lstdelone.c \
+	$(SRCDIR)/ft_lstclear.c \
+	$(SRCDIR)/ft_lstiter.c \
+	$(SRCDIR)/ft_lstmap.c
+
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 NAME = libft.a
 
@@ -52,7 +76,10 @@ ERRORSRC = $(TESTSRCDIR)/error_libft.c
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar r $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 %.o: %.c
 	$(CC) $(FLAGS) -I$(INCDIR) -c $< -o $@
@@ -66,7 +93,7 @@ sanitize: $(TESTSRC)
 	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $(SANITIZE) $^ -D FT -o $@
 	./$@
 
-#テスト関連
+#自分が作ったテスト関連
 test: re lib.txt libft.txt
 	diff lib.txt libft.txt
 
@@ -85,7 +112,7 @@ error:$(ERRORSRC)
 
 #clean関連
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 	rm -rf sanitize.dSYM
 	rm -f *.txt lib libft sanitize error
 
