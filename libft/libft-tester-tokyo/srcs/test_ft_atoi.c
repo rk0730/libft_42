@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_aoti.c                                     :+:      :+:    :+:   */
+/*   test_ft_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: susami <susami@student.42tokyo.jp>         +#+  +:+       +#+        */
+/*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 11:05:54 by susami            #+#    #+#             */
-/*   Updated: 2022/05/02 09:48:50 by susami           ###   ########.fr       */
+/*   Updated: 2024/04/20 12:41:03 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	main(void)
 	/* 10 */ ASSERT_EQ_I(ft_atoi("7"), atoi("7"));
 	/* 11 */ ASSERT_EQ_I(ft_atoi("-7"), atoi("-7"));
 	/* 12 */ ASSERT_EQ_I(ft_atoi("+7"), atoi("+7"));
-	/* 13 */ ASSERT_EQ_I(ft_atoi("42"), atoi("42"));
+	/* 13 */ ASSERT_EQ_I(ft_atoi("42a"), atoi("42a"));
 	/* 14 */ ASSERT_EQ_I(ft_atoi("-42"), atoi("-42"));
 	/* 15 */ ASSERT_EQ_I(ft_atoi("a"), atoi("a"));
 	/* 16 */ ASSERT_EQ_I(ft_atoi("!"), atoi("!"));
 	/* 17. INT_MAX */ ASSERT_EQ_I(ft_atoi("2147483647"), atoi("2147483647"));
 	/* 18. INT_MIN */ ASSERT_EQ_I(ft_atoi("-2147483648"), atoi("-2147483648"));
-	/* 19. UINT_MAX */ ASSERT_EQ_I(ft_atoi("4294967295"), atoi("4294967295"));
+	/* 19. UINT_MAX */ ASSERT_EQ_I(ft_atoi("4294967396"), atoi("4294967396"));
 	/* 20. LONG_MAX */ ASSERT_EQ_I(ft_atoi("9223372036854775807"), atoi("9223372036854775807"));
 	/* 21. LONG_MIN */ ASSERT_EQ_I(ft_atoi("-9223372036854775808"), atoi("-9223372036854775808"));
 	/* 22. ULONG_MAX */ ASSERT_EQ_I(ft_atoi("18446744073709551615"), atoi("18446744073709551615"));
