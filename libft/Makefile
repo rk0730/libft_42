@@ -99,7 +99,6 @@ bonus:
 norm:
 	norminette libft.h srcs/
 	@echo
-	norminette -R CheckDefine libft.h
 
 test1: fclean bonus
 	@echo "\n$(TEST1_NAME)\n"
