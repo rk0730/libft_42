@@ -1,6 +1,6 @@
 # コンパイラ
 CC = cc
-AR = ar r
+AR = ar rc
 FLAGS = -Wall -Wextra -Werror
 SANITIZE = -fsanitize=address -g
 
