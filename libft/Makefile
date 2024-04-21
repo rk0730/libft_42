@@ -1,7 +1,7 @@
 # コンパイラ
 CC = cc
 AR = ar rc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SANITIZE = -fsanitize=address -g
 
 # srcなど
@@ -63,6 +63,11 @@ BONUS_SRCS = $(SRCDIR)/ft_lstnew.c \
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
+ifdef WITH_BONUS
+	SRCS += $(BONUS_SRCS)
+	OBJS += $(BONUS_OBJS)
+endif
+
 NAME = libft.a
 
 # テスト関連
@@ -78,11 +83,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:
+	make WITH_BONUS=1
 
 %.o: %.c
-	$(CC) $(FLAGS) -I$(INCDIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
 #メモリリークチェック
 leak: libft
@@ -90,7 +95,7 @@ leak: libft
 
 #セグフォなどの場所を確認する
 sanitize: $(TESTSRC)
-	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $(SANITIZE) $^ -D FT -o $@
+	$(CC) $(NAME) -I$(INCDIR) $(CFLAGS) $(SANITIZE) $^ -D FT -o $@
 	./$@
 
 #自分が作ったテスト関連
@@ -101,13 +106,13 @@ test: re lib.txt libft.txt
 	./$< > $@
 
 lib:$(TESTSRC)
-	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $^ -o $@
+	$(CC) $(NAME) -I$(INCDIR) $(CFLAGS) $^ -o $@
 
 libft:$(TESTSRC)
-	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $^ -D FT -o $@
+	$(CC) $(NAME) -I$(INCDIR) $(CFLAGS) $^ -D FT -o $@
 
 error:$(ERRORSRC)
-	$(CC) $(NAME) -I$(INCDIR) $(FLAGS) $^ -o $@
+	$(CC) $(NAME) -I$(INCDIR) $(CFLAGS) $^ -o $@
 	./$@
 
 #clean関連
@@ -121,4 +126,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
