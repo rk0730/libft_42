@@ -2,12 +2,14 @@
 CC = cc
 AR = ar rc
 CFLAGS = -Wall -Wextra -Werror
+
+#消去--
 SANITIZE = -fsanitize=address -g
 
 # srcなど
 
 SRCDIR = srcs
-INCDIR = include
+INCDIR = .
 
 # find ./srcs -type f -name "*.c"
 # このコマンドで出したものをコピペする
@@ -70,11 +72,16 @@ endif
 
 NAME = libft.a
 
-# テスト関連
+# テスト関連--消去
 TESTSRCDIR = test
 TESTSRC = $(TESTSRCDIR)/test_libft.c
 
 ERRORSRC = $(TESTSRCDIR)/error_libft.c
+
+#テスター関連
+TEST1_NAME = libft-tester-tokyo
+TEST2_NAME = libft-unit-test
+TEST3_NAME = libftTester
 
 # ターゲット
 
@@ -88,6 +95,45 @@ bonus:
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
+
+norm:
+	norminette libft.h srcs/
+	@echo
+	norminette -R CheckDefine libft.h
+
+test1:
+	@echo "\n$(TEST1_NAME)\n"
+	@if [ ! -d "../$(TEST1_NAME)" ]; then \
+		git clone https://github.com/usatie/libft-tester-tokyo.git ../$(TEST1_NAME); \
+	fi
+	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ all
+#	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ bonus
+
+test2:
+	@echo "\n$(TEST2_NAME)\n"
+	@if [ ! -d "../$(TEST2_NAME)" ]; then \
+		git clone https://github.com/alelievr/libft-unit-test.git ../$(TEST2_NAME); \
+	fi
+	make -C ../$(TEST2_NAME) f
+	make -C ../$(TEST2_NAME) fclean
+
+test3:
+	@echo "\n$(TEST3_NAME)\n"
+	@if [ ! -d "$(TEST3_NAME)" ]; then \
+		git clone https://github.com/Tripouille/libftTester.git $(TEST3_NAME); \
+	fi
+	make -C $(TEST3_NAME) m
+#	make -C $(TEST3_NAME) b
+#	make -C $(TEST3_NAME) fclean
+
+review: norm test1 test2 test3 clean
+
+cleantester:
+	rm -rf ../$(TEST1_NAME)
+	rm -rf ../$(TEST2_NAME)
+	rm -rf $(TEST3_NAME)
+
+#---消す
 
 #メモリリークチェック
 leak: libft
@@ -115,6 +161,8 @@ error:$(ERRORSRC)
 	$(CC) $(NAME) -I$(INCDIR) $(CFLAGS) $^ -o $@
 	./$@
 
+#---消す
+
 #clean関連
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
@@ -126,4 +174,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus norm test1 test2 test3 review cleantester clean fclean re
