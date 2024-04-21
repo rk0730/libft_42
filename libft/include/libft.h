@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:30:41 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 23:05:12 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/21 09:55:00 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-	void 			*content;
-	struct s_list 	*next;
+	void			*content;
+	struct s_list	*next;
 }				t_list;
 
 //mandatory
@@ -62,7 +62,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
-
 //bonus
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -72,7 +71,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
 
 //helper
 char	**ft_array_add(char **tmp, char *str);
