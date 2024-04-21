@@ -344,5 +344,7 @@ int	main(void)
 	// test_substr();
 	// test_strjoin();
 
+	ft_lstnew("123");
+
 	return (0);
 }

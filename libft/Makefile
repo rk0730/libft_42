@@ -101,15 +101,16 @@ norm:
 	@echo
 	norminette -R CheckDefine libft.h
 
-test1:
+test1: fclean bonus
 	@echo "\n$(TEST1_NAME)\n"
 	@if [ ! -d "../$(TEST1_NAME)" ]; then \
 		git clone https://github.com/usatie/libft-tester-tokyo.git ../$(TEST1_NAME); \
 	fi
 	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ all
-#	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ bonus
+	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ bonus
+	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ clean
 
-test2:
+test2: fclean bonus
 	@echo "\n$(TEST2_NAME)\n"
 	@if [ ! -d "../$(TEST2_NAME)" ]; then \
 		git clone https://github.com/alelievr/libft-unit-test.git ../$(TEST2_NAME); \
@@ -117,14 +118,14 @@ test2:
 	make -C ../$(TEST2_NAME) f
 	make -C ../$(TEST2_NAME) fclean
 
-test3:
+test3: fclean bonus
 	@echo "\n$(TEST3_NAME)\n"
 	@if [ ! -d "$(TEST3_NAME)" ]; then \
 		git clone https://github.com/Tripouille/libftTester.git $(TEST3_NAME); \
 	fi
 	make -C $(TEST3_NAME) m
-#	make -C $(TEST3_NAME) b
-#	make -C $(TEST3_NAME) fclean
+	make -C $(TEST3_NAME) b
+	make -C $(TEST3_NAME) fclean
 
 review: norm test1 test2 test3 clean
 
