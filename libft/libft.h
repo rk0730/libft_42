@@ -6,15 +6,12 @@
 /*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:30:41 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/22 00:11:26 by kitaoryoma       ###   ########.fr       */
+/*   Updated: 2024/04/22 22:42:02 by kitaoryoma       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-//消す
-# include <stdio.h>
 
 # include <unistd.h>
 # include <stdlib.h>
