@@ -97,25 +97,25 @@ bonus:
 	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
 norm:
-	norminette libft.h srcs/
+	norminette libft.h $(SRCDIR)/
 	@echo
 
 test1: fclean bonus
 	@echo "\n$(TEST1_NAME)\n"
-	@if [ ! -d "../$(TEST1_NAME)" ]; then \
-		git clone https://github.com/usatie/libft-tester-tokyo.git ../$(TEST1_NAME); \
+	@if [ ! -d "$(TEST1_NAME)" ]; then \
+		git clone https://github.com/usatie/libft-tester-tokyo.git $(TEST1_NAME); \
 	fi
-	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ all
-	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ bonus
-	make -C ../$(TEST1_NAME) LIBFT_DIR=../libft/ clean
+	make -C $(TEST1_NAME) all
+	make -C $(TEST1_NAME) bonus
+	make -C $(TEST1_NAME) clean
 
 test2: fclean bonus
 	@echo "\n$(TEST2_NAME)\n"
-	@if [ ! -d "../$(TEST2_NAME)" ]; then \
-		git clone https://github.com/alelievr/libft-unit-test.git ../$(TEST2_NAME); \
+	@if [ ! -d "$(TEST2_NAME)" ]; then \
+		git clone https://github.com/alelievr/libft-unit-test.git $(TEST2_NAME); \
 	fi
-	make -C ../$(TEST2_NAME) f
-	make -C ../$(TEST2_NAME) fclean
+	make -C $(TEST2_NAME) LIBFTDIR=../ f
+	make -C $(TEST2_NAME) LIBFTDIR=../ fclean
 
 test3: fclean bonus
 	@echo "\n$(TEST3_NAME)\n"
@@ -129,9 +129,7 @@ test3: fclean bonus
 review: norm test1 test2 test3 clean
 
 cleantester:
-	rm -rf ../$(TEST1_NAME)
-	rm -rf ../$(TEST2_NAME)
-	rm -rf $(TEST3_NAME)
+	rm -rf $(TEST1_NAME) $(TEST2_NAME) $(TEST3_NAME)
 
 #---消す
 
