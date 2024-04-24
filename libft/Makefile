@@ -8,7 +8,7 @@ SANITIZE = -fsanitize=address -g
 
 # srcなど
 
-SRCDIR = srcs
+SRCDIR = .
 INCDIR = .
 
 # find ./srcs -type f -name "*.c"
