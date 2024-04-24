@@ -96,7 +96,7 @@ bonus:
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
-norm: bonus
+norm: cleantester bonus
 	norminette libft.h $(SRCDIR)/
 	nm -u $(NAME)
 	@echo
