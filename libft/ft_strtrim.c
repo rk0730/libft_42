@@ -6,7 +6,7 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 21:03:52 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/20 18:39:27 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/28 18:45:10 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1)
 		return (NULL);
 	start = 0;
-	while (ft_strchr(set, s1[start]) != NULL)
+	while (ft_strchr(set, s1[start]) != NULL && s1[start] != '\0')
 	{
 		start++;
 	}

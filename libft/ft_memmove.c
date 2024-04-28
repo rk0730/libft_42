@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kitaoryoma <kitaoryoma@student.42.fr>      +#+  +:+       +#+        */
+/*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 00:31:13 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/22 19:46:49 by kitaoryoma       ###   ########.fr       */
+/*   Updated: 2024/04/28 16:52:56 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char		*tmp_d;
 	const char	*tmp_s;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (dst);
 	tmp_d = (char *)dst;
 	tmp_s = (const char *)src;
