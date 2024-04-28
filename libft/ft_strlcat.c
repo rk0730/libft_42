@@ -6,7 +6,7 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:05:34 by 1652952399        #+#    #+#             */
-/*   Updated: 2024/04/20 14:48:06 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/28 16:54:16 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	d_len;
 	size_t	s_len;
 
-	if (!dst || !src)
+	// if (!dst || !src)
+	// 	return (ft_strlen(src));
+	if (!src || (!dst && dstsize == 0))
 		return (ft_strlen(src));
 	i = 0;
 	d_len = ft_strlen((const char *)dst);

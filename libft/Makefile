@@ -48,9 +48,6 @@ SRCS = $(SRCDIR)/ft_isalpha.c \
 	$(SRCDIR)/ft_putendl_fd.c \
 	$(SRCDIR)/ft_putnbr_fd.c
 
-SRCS += $(SRCDIR)/ft_stradd_first.c
-SRCS += $(SRCDIR)/ft_array_add.c
-
 OBJS = $(SRCS:.c=.o)
 
 BONUS_SRCS = $(SRCDIR)/ft_lstnew.c \
@@ -82,6 +79,7 @@ ERRORSRC = $(TESTSRCDIR)/error_libft.c
 TEST1_NAME = libft-tester-tokyo
 TEST2_NAME = libft-unit-test
 TEST3_NAME = libftTester
+TEST4_NAME = libft-war-machine
 
 # ターゲット
 
@@ -127,10 +125,20 @@ test3: fclean bonus
 	make -C $(TEST3_NAME) b
 	make -C $(TEST3_NAME) fclean
 
-review: norm test1 test2 test3 clean
+test4: fclean bonus
+	@echo "\n$(TEST4_NAME)\n"
+	@if [ ! -d "$(TEST4_NAME)" ]; then \
+		git clone https://github.com/y3ll0w42/libft-war-machine $(TEST4_NAME); \
+	fi
+	@if [ ! -f $(TEST4_NAME)/my_config.sh ]; then \
+		bash $(TEST4_NAME)/grademe.sh; \
+	fi
+	bash $(TEST4_NAME)/grademe.sh
+
+review: norm test1 test2 test3 test4 clean
 
 cleantester:
-	rm -rf $(TEST1_NAME) $(TEST2_NAME) $(TEST3_NAME)
+	rm -rf $(TEST1_NAME) $(TEST2_NAME) $(TEST3_NAME) $(TEST4_NAME)
 
 #---消す
 

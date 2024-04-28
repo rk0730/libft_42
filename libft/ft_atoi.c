@@ -6,14 +6,14 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:02:33 by 1652952399        #+#    #+#             */
-/*   Updated: 2024/04/20 18:36:47 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/04/28 17:48:23 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 //startは最初の0以外の数字 数字列の桁数を数え、19桁より多い場合は確定　19桁の場合はstrncmpを使ってより大きい場合を見つける
-int	ft_atoi_helper(const char *start)
+static int	ft_atoi_helper(const char *start)
 {
 	size_t	digit_len;
 
