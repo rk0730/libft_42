@@ -8,7 +8,7 @@ SANITIZE = -fsanitize=address -g
 
 # srcなど
 
-SRCDIR = .
+SRCDIR = libft
 INCDIR = .
 
 # find ./srcs -type f -name "*.c"
@@ -174,7 +174,7 @@ error:$(ERRORSRC)
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 	rm -rf sanitize.dSYM
-	rm -f *.txt lib libft sanitize error
+#	rm -f *.txt lib libft sanitize error
 
 fclean: clean
 	rm -f $(NAME)
