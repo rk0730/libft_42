@@ -6,7 +6,7 @@
 /*   By: rkitao <rkitao@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 20:08:35 by kitaoryoma        #+#    #+#             */
-/*   Updated: 2024/04/28 18:29:21 by rkitao           ###   ########.fr       */
+/*   Updated: 2024/05/04 14:40:31 by rkitao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if ((size_t)start >= ft_strlen(s))
 	{
-		ft_putstr_fd("ft_substr: start >= ft_strlen(s)\n", 1);
 		result = ft_calloc(1, 1);
 		return (result);
 	}
