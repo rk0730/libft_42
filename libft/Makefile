@@ -70,7 +70,7 @@ endif
 NAME = libft.a
 
 # テスト関連--消去
-TESTSRCDIR = test
+TESTSRCDIR = ../test
 TESTSRC = $(TESTSRCDIR)/test_libft.c
 
 ERRORSRC = $(TESTSRCDIR)/error_libft.c
